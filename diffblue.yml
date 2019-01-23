@@ -1,0 +1,146 @@
+# Tested on Deeptest release 1.10.0
+cbmcArguments:
+  cover-function-only: false
+  depth: false
+  do-not-test-methods-with-access: [ private ]
+  java-generate-no-comments: true
+units:
+  - target:
+    - dir: target/classes
+      file: net/sf/jsqlparser/util/deparser/CreateTableDeParser.class
+      sourceDir: src/main/java
+      sourceFile: net/sf/jsqlparser/util/deparser/CreateTableDeParser.java
+  # Child of CreateTableDeParser.class
+    - dir: target/classes
+      file: net/sf/jsqlparser/statement/create/table/ColumnDefinition.class
+      sourceDir: src/main/java
+      sourceFile: net/sf/jsqlparser/statement/create/table/ColumnDefinition.java
+  # Child of CreateTableDeParser.class
+    - dir: target/classes
+      file: net/sf/jsqlparser/statement/create/table/CreateTable.class
+      sourceDir: src/main/java
+      sourceFile: net/sf/jsqlparser/statement/create/table/CreateTable.java
+  # Child of CreateTableDeParser.class
+    - dir: target/classes
+      file: net/sf/jsqlparser/statement/create/table/Index.class
+      sourceDir: src/main/java
+      sourceFile: net/sf/jsqlparser/statement/create/table/Index.java
+  # Child of CreateTableDeParser.class
+    - dir: target/classes
+      file: net/sf/jsqlparser/statement/select/PlainSelect.class
+      sourceDir: src/main/java
+      sourceFile: net/sf/jsqlparser/statement/select/PlainSelect.java
+  # Child of CreateTableDeParser.class
+    - dir: target/classes
+      file: net/sf/jsqlparser/statement/select/Select.class
+      sourceDir: src/main/java
+      sourceFile: net/sf/jsqlparser/statement/select/Select.java
+  - target:
+    - dir: target/classes
+      file: net/sf/jsqlparser/parser/CCJSqlParserTokenManager.class
+      sourceDir: target/generated-sources/javacc
+      sourceFile: net/sf/jsqlparser/parser/CCJSqlParserTokenManager.java
+  - target:
+    - dir: target/classes
+      file: net/sf/jsqlparser/expression/WindowOffset.class
+      sourceDir: src/main/java
+      sourceFile: net/sf/jsqlparser/expression/WindowOffset.java
+  - target:
+    - dir: target/classes
+      file: net/sf/jsqlparser/util/cnfexpression/CNFConverter.class
+      sourceDir: src/main/java
+      sourceFile: net/sf/jsqlparser/util/cnfexpression/CNFConverter.java
+  # Child of CNFConverter.class
+    - dir: target/classes
+      file: net/sf/jsqlparser/expression/BinaryExpression.class
+      sourceDir: src/main/java
+      sourceFile: net/sf/jsqlparser/expression/BinaryExpression.java
+  # Child of CNFConverter.class
+    - dir: target/classes
+      file: net/sf/jsqlparser/expression/Expression.class
+      sourceDir: src/main/java
+      sourceFile: net/sf/jsqlparser/expression/Expression.java
+  # Child of CNFConverter.class
+    - dir: target/classes
+      file: net/sf/jsqlparser/expression/NotExpression.class
+      sourceDir: src/main/java
+      sourceFile: net/sf/jsqlparser/expression/NotExpression.java
+  # Child of CNFConverter.class
+    - dir: target/classes
+      file: net/sf/jsqlparser/expression/operators/relational/LikeExpression.class
+      sourceDir: src/main/java
+      sourceFile: net/sf/jsqlparser/expression/operators/relational/LikeExpression.java
+  - target:
+    - dir: target/classes
+      file: net/sf/jsqlparser/util/deparser/UpdateDeParser.class
+      sourceDir: src/main/java
+      sourceFile: net/sf/jsqlparser/util/deparser/UpdateDeParser.java
+  # Child of UpdateDeParser.class
+    - dir: target/classes
+      file: net/sf/jsqlparser/expression/ExpressionVisitor.class
+      sourceDir: src/main/java
+      sourceFile: net/sf/jsqlparser/expression/ExpressionVisitor.java
+  # Child of UpdateDeParser.class
+    - dir: target/classes
+      file: net/sf/jsqlparser/expression/ExpressionVisitorAdapter.class
+      sourceDir: src/main/java
+      sourceFile: net/sf/jsqlparser/expression/ExpressionVisitorAdapter.java
+  # Child of UpdateDeParser.class
+    - dir: target/classes
+      file: net/sf/jsqlparser/schema/Column.class
+      sourceDir: src/main/java
+      sourceFile: net/sf/jsqlparser/schema/Column.java
+  # Child of UpdateDeParser.class
+    - dir: target/classes
+      file: net/sf/jsqlparser/statement/select/Join.class
+      sourceDir: src/main/java
+      sourceFile: net/sf/jsqlparser/statement/select/Join.java
+  # Child of UpdateDeParser.class
+    - dir: target/classes
+      file: net/sf/jsqlparser/statement/update/Update.class
+      sourceDir: src/main/java
+      sourceFile: net/sf/jsqlparser/statement/update/Update.java
+  # Child of UpdateDeParser.class
+    - dir: target/classes
+      file: net/sf/jsqlparser/statement/select/SelectVisitor.class
+      sourceDir: src/main/java
+      sourceFile: net/sf/jsqlparser/statement/select/SelectVisitor.java
+  # Child of UpdateDeParser.class
+    - dir: target/classes
+      file: net/sf/jsqlparser/statement/select/OrderByVisitor.class
+      sourceDir: src/main/java
+      sourceFile: net/sf/jsqlparser/statement/select/OrderByVisitor.java
+  # Child of UpdateDeParser.class
+    - dir: target/classes
+      file: net/sf/jsqlparser/statement/select/OrderByElement.class
+      sourceDir: src/main/java
+      sourceFile: net/sf/jsqlparser/statement/select/OrderByElement.java
+  # Child of UpdateDeParser.class
+    - dir: target/classes
+      file: net/sf/jsqlparser/statement/select/SelectExpressionItem.class
+      sourceDir: src/main/java
+      sourceFile: net/sf/jsqlparser/statement/select/SelectExpressionItem.java
+  # Child of UpdateDeParser.class
+    - dir: target/classes
+      file: net/sf/jsqlparser/statement/select/SelectVisitorAdapter.class
+      sourceDir: src/main/java
+      sourceFile: net/sf/jsqlparser/statement/select/SelectVisitorAdapter.java
+phases:
+-
+  timeout: 300
+  cbmcArguments:
+    java-assume-inputs-non-null: true
+    max-nondet-array-length: 10
+    string-non-empty: true
+    unwind: 1
+-
+  timeout: 300
+  cbmcArguments:
+    max-nondet-array-length: 20
+    unwind: 2
+-
+  timeout: 300
+  cbmcArguments:
+    max-nondet-array-length: 30
+    max-nondet-string-length: 10
+    unwind: 3
